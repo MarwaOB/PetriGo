@@ -1,0 +1,106 @@
+@font-face {
+  font-family: 'YourCustomFont';
+  src: url('../fonts/Neufile-Grotesk-Medium.woff') format('woff2'), 
+       
+ 
+}
+  
+
+
+/*export button*/
+
+.export-dialog-content ,.grid-selector-content{
+   
+  background: linear-gradient(
+    135deg,
+    #20B2AA 0%, 
+    #2DB189 15%, 
+    #2DB194 30%, 
+    #2DB19F 45%,
+    #2DB1AA 60%,
+    #2DADB1 75%, 
+    #2DA2B1 100% 
+  );    
+    padding: 18px;
+    position:center;
+
+  }
+.export-format-input {
+  font-size: 1.2rem;
+  color:white;
+  font-family: 'YourCustomFont';
+}
+  
+.export-format-input p {
+  margin-bottom: 0.5rem;
+  font-family: 'YourCustomFont';
+  
+  
+}
+  
+.export-format-input button {
+  font-size: 0.8rem;
+  font-weight: 500; 
+  font-family: 'YourCustomFont';
+  
+}
+.export-format-input button:active {
+border: 2px solid black;
+}
+    
+  
+
+.file-name-input {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-family: 'YourCustomFont';
+}
+
+
+.file-name-input p {
+  
+  margin-bottom: 0.5rem;
+  font-family: 'YourCustomFont';
+  
+  color:white;
+}
+
+.file-name-input .MuiInputBase-root {
+  font-size: 0.8rem;
+  color:rgba(0, 0, 0, 0.4);
+  font-family: 'YourCustomFont';
+  margin-top: -5px;
+  width:250px;
+  font-weight: 500; 
+}
+.export-button-container  {
+  text-align: center; 
+  margin-top: 20px;
+  font-family: 'YourCustomFont';
+
+}
+.fermer-button-container{
+  text-align: center; 
+ 
+}
+
+.export-button,.fermer-button ,.dots-button ,.lines-button ,.cross-button{
+  color: #008080 !important ; 
+  border-color: black;
+  margin-top: 20px; 
+  margin-right: 10px;
+  width: 80px; 
+  height: 30px;
+  cursor: pointer;
+  background-color:#ffffff !important;
+  font-family: 'YourCustomFont' !important;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.export-button:hover ,.fermer-button:hover ,.dots-button:hover,.lines-button:hover ,.cross-button:hover{
+background-color: #008080 !important; 
+color:white !important;
+}
+
+
+

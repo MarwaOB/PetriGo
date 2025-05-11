@@ -1,0 +1,247 @@
+/* body.css */
+
+* {
+    padding: 0;
+    margin: 0;
+  }
+  
+.bodyy{
+position: relative;
+
+
+}
+.footer {
+    margin-top: 80px  ;
+    margin-left: 47%;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+
+}
+.container {
+    position: absolute;
+    top: 10%;
+    right: 10%;
+  display: flex;
+  flex-direction: column;
+
+  
+  }
+
+.containerligne {
+  margin: 70px 0 0 10%;
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+
+}
+
+
+
+  .profil {
+  border-radius: 20px;
+    width: 30%;
+    height: auto;
+border: 1px solid black;
+background: #015858;
+text-align: center;
+padding-top:20% ;
+padding-bottom: 3%;
+transition: all 0.5s;
+position: relative;
+
+
+  }
+
+  .profil:hover {
+    border-radius: 20px;
+      width: 35%;
+      height: auto;
+  border: 1px solid black;
+  background: rgba(32, 178, 170, 0.36);
+  text-align: center;
+  padding-top:20% ;
+  
+  
+    }
+
+    .profil h3 {
+        color: rgb(255, 255, 255);
+      transition: all 0.5s;
+    }
+
+    .profil:hover h3 {
+        margin-top: 80px;
+   color:  #101C28;
+    }
+ .profil p{
+      color: rgb(255, 255, 255);
+      transition: all 0.5s;
+    }
+
+    .profil:hover p{
+        color: rgb(0, 0, 0);
+        transition: all 0.5s;
+      }
+    .profil img {
+      width: 180px;
+      height:180px;
+      position: absolute;
+      top: 5%;
+      left: 17%;
+      transition: all 0.5s;
+      border-radius: 20px;
+        }
+
+        .profil:hover img {
+          width: 250px;
+          height: 250px;
+          position: absolute;
+          top: -8%;
+          left: 12%;
+          box-shadow: 3px 3px 5px 0.1px #015858; 
+            }
+
+           
+  @media (max-width: 1000px) {
+
+   
+    
+    .container {
+     
+    
+    display: flex;
+    flex-direction: column;
+  
+    
+    }
+
+    .containerligne {
+     
+    
+        display: flex;
+        flex-direction: column;
+      
+        
+        }
+
+    .profil {
+
+        border-radius: 20px;
+        width: 90%;
+        height: auto;
+    border: 1px solid black;
+    background: #20B2AA;
+    text-align: center;
+    transition: all 0.5s;
+    padding-top:55% ;
+    margin-bottom: 10%;
+    margin-left: auto;
+      }
+
+
+      .profil:hover {
+       
+          width: 90%;
+      padding-top:55% ;
+      
+      
+        }
+        .profil h3 {
+          margin-top: 0px;
+        }
+
+      .profil img {
+        
+        width: 350px;
+      height: 350px;
+      position: absolute;
+      top: 2%;
+      left: 17%;
+   
+        
+          }
+
+      .profil:hover img {
+        width: 350px;
+      height: 350px;
+      position: absolute;
+      top: -2%;
+      left: 17%;
+          }
+
+        
+
+  }
+
+
+  
+           
+  @media (max-width: 600px) {
+
+   
+    
+    .container {
+     
+    
+    display: flex;
+    flex-direction: column;
+  
+    
+    }
+
+    .containerligne {
+     
+    
+        display: flex;
+        flex-direction: column;
+      
+        
+        }
+
+    .profil {
+
+        border-radius: 20px;
+        width: 80%;
+        height: auto;
+    border: 1px solid black;
+    background: #20B2AA;
+    text-align: center;
+    transition: all 0.5s;
+    padding-top:60% ;
+    margin-bottom: 10%;
+    margin-left: auto;
+      }
+
+
+      .profil:hover {
+       
+          width: 85%;
+        
+      padding-top:60% ;
+      
+      
+        }
+
+      .profil img {
+        width: 220px;
+      height: 220px;
+      position: absolute;
+      top: 2%;
+      left: 17%;
+   
+        
+          }
+
+      .profil:hover img {
+        width: 220px;
+        height: 280px;
+      position: absolute;
+      top: -2%;
+      left: 17%;
+          }
+
+        
+
+  }
+  

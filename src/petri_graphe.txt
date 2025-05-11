@@ -1,0 +1,71 @@
+import React, { useEffect, useState } from 'react';
+import ReactFlow, { Controls } from 'react-flow-renderer';
+//import {Petri_Net,PetriNet, Transition,Place ,Arc , Marking} from './petri_net.js';
+
+const Petri_graphe = () => {
+    const [elements, setElements] = useState([]);
+    const [selectedNodes, setSelectedNodes] = useState([]);
+
+    useEffect(() => {
+        const nodes = [];
+        const edges = [];
+
+        PetriNet.transition.forEach((transition, index) => {
+            const node = {
+                id: `transition-${transition.id_transition}`,
+                data: { label: transition.name },
+                position: { x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight },
+                type: 'transition',
+            };
+            nodes.push(node);
+        });
+
+        PetriNet.place.forEach((place, index) => {
+            const node = {
+                id: `place-${place.id_place}`,
+                data: { label: place.name },
+                position: { x: Math.random() * window.innerWidth, y: Math.random() * window.innerHeight },
+                type: 'place',
+            };
+            nodes.push(node);
+        });
+
+        PetriNet.arc.forEach((arc) => {
+            const edge = {
+                id: `edge-${arc.id}`, // Adjust this based on your data structure
+                source: `place-${arc.source}`, // Adjust based on the source of the arc
+                target: `transition-${arc.target}`, // Adjust based on the target of the arc
+                animated: false,
+            };
+            edges.push(edge);
+        });
+
+        setElements([...nodes, ...edges]);
+    }, [PetriNet]);
+
+    const onLoad = (reactFlowInstance) => {
+        reactFlowInstance.fitView();
+    };
+
+    const onElementClick = (event, element) => {
+        if (element.type === 'place' || element.type === 'transition') {
+            setSelectedNodes((prevSelectedNodes) => {
+                if (prevSelectedNodes.includes(element.id)) {
+                    return prevSelectedNodes.filter((nodeId) => nodeId !== element.id);
+                } else {
+                    return [...prevSelectedNodes, element.id];
+                }
+            });
+        }
+    };
+
+    return (
+    <div style={{ height: '100vh', width: '100%' }}>
+          <ReactFlow elements={elements} onLoad={onLoad} onElementClick={onElementClick}>
+                <Controls />
+            </ReactFlow>
+        </div>
+    );
+};
+
+export default Petri_graphe;

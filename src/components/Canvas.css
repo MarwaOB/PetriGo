@@ -1,0 +1,13 @@
+.canvas {
+  background-color: #BFDBFE;
+  color: #fff;
+  height: calc(100vh - 135px);
+
+  max-width: calc(100% - 87px); /* Adjust the margin-left and margin-right */
+  max-height: calc(100vh - 20px); /* Adjust the value based on your top and bottom margin */
+
+  margin-left: 67px;
+  margin-top: 10px;
+  margin-right: 20px; /* Add margin to the right */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+}

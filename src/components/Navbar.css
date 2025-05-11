@@ -1,0 +1,81 @@
+
+/* Navbar.css */
+
+/* Existing styles... */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Your custom CSS rules */
+ 
+nav .sidebar-icon {
+  
+  font-size: 1.2rem;
+  margin-bottom: 13px;
+  padding : 0 ; 
+  
+}
+nav .sidebar-icon:hover{
+  cursor: pointer;
+}
+
+/* Additional styles as needed... */
+
+.navbar {
+  background-color: none;
+  height: 65px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+
+.menu-bars {
+  margin-left: 16px;
+  font-size: 2rem;
+  background: none;
+}
+
+.nav-menu {
+  background-color: #2B82FB;
+  width: 30px;
+  height: calc(100vh - 160px);
+  max-height: calc(100vh - 20px); /* Adjust the value based on your top and bottom margin */
+
+  margin-top: 135px;
+  margin-left: 15px;
+  display: flex;
+  flex-direction: column; /* Change to column */
+  align-items: center; /* Center vertically */
+  justify-content: center;
+  border-radius: 24px;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.nav-menu.active {
+  left: 0;
+  transition: 350ms;
+}
+
+.w-3/4 {
+  background-color: #2B82FB;
+  height: 65px;
+  border-radius: 3xl;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+.w-3/4 .flex {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+  gap: 10px;
+  flex-direction: column; /* Change to column */
+}
+
+/* Existing styles... */

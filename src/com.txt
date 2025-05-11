@@ -1,0 +1,33 @@
+import React, { Component } from 'react';
+import { PetriNet, Transition, Place, Arc } from './petri_net';
+
+class PetriNetComponent extends Component {
+   
+componentDidMount() {   
+PetriNet.addTransition();
+PetriNet.addTransition();
+PetriNet.addTransition();
+PetriNet.addArc();
+PetriNet.addArc();
+PetriNet.addArc();
+PetriNet.addArc();
+PetriNet.arc[0].place =   PetriNet.place[0] ;
+PetriNet.arc[1].place =   PetriNet.place[2] ;
+PetriNet.arc[2].place =   PetriNet.place[1] ;
+PetriNet.arc[0].transition =   PetriNet.transition[1] ;
+PetriNet.arc[1].transition =   PetriNet.transition[0] ;
+PetriNet.arc[2].transition =   PetriNet.transition[2] ;
+
+    }
+  
+    render() {
+      return (
+        <div>
+          {/* Render your Petri net UI here */}
+        </div>
+      );
+    }
+  }
+  
+  export default PetriNetComponent;
+  
