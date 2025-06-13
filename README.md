@@ -96,7 +96,6 @@ npm install
 - [Petri Net Introduction (Wikipedia)](https://en.wikipedia.org/wiki/Petri_net)
 - [Petri Net Tutorials](https://www.petrinets.info/tutorials/)
 - [React Documentation](https://reactjs.org/)
-- See our user guide: [`docs/guide.md`](docs/guide.md) for detailed explanations of all features.
 
 ---
 
