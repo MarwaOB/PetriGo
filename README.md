@@ -1,70 +1,114 @@
-# Getting Started with Create React App
+# PetriGo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+PetriGo is a web application for modeling, simulating, and analyzing Petri Nets. It combines an intuitive React-based interface with a robust JavaScript simulation core, enabling users to visually create nets, run simulations, and explore advanced properties such as liveness, boundedness, and persistence.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Interactive Visual Editor:** Build Petri Nets by adding places, transitions, and arcs via a drag-and-drop UI.
+- **Simulation Engine:** Simulate the dynamic behavior of your net with immediate and timed transitions.
+- **Property Analysis:** Check for net properties such as boundedness, liveness, and persistence.
+- **Customizable Tokens and Capacities:** Configure places, transitions, arc weights, and inhibitor arcs.
+- **Real-time Feedback:** Visualize token movements and transition firings during simulation.
+- **Export/Import:** Save and load your Petri Net models.
+- **Marking Graphs:** Generate and explore the full marking graph (graphe de marquages) and the tangible marking graph (graphe de marquage tangible) for your net to analyze its reachable states and tangible states.
+- **Educational Resources & Guide:** A comprehensive user guide is included to explain the features of PetriGo and help you get the most out of the tool.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- [Node.js](https://nodejs.org/) (v12 or higher recommended)
+- npm
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone the repository and install dependencies:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone https://github.com/MarwaOB/PetriGo.git
+cd PetriGo
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Available Scripts
 
-### `npm run eject`
+- **Start development server:**
+  ```bash
+  npm start
+  ```
+  Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Run tests:**
+  ```bash
+  npm test
+  ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Build for production:**
+  ```bash
+  npm run build
+  ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Eject (advanced, irreversible):**
+  ```bash
+  npm run eject
+  ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
+
+## Project Structure
+
+- `/src/modules/Petri_Net.js` – Core Petri Net implementation (places, transitions, arcs, simulation logic).
+- `/src/modules/Marking.js` – Marking and state management, transition enabling, property checking, marking graph generation.
+- `/src/modules/Arc.js` – Arc types, weights, and connections.
+- `/src/Functions/simulate.js` – Simulation helpers and user feedback.
+- `/public/` – Static assets (including token images).
+- `/src/components/` – React UI components (editor, visualization, controls).
+- `/docs/guide.md` – User guide explaining all features and usage of PetriGo.
+
+---
+
+## How It Works
+
+1. **Create a Petri Net:** Add places, transitions, and connect them with arcs (regular or inhibitor).
+2. **Assign Tokens:** Set initial tokens and place capacities.
+3. **Simulate:** Click run to watch tokens flow and transitions fire according to the net's rules.
+4. **Analyze:** Use built-in tools to check properties like liveness, boundedness, and persistence.
+5. **Marking Graphs:** Automatically generate the marking graph and tangible marking graph to visualize all possible (and only tangible) states reachable by your net.
+
+---
+
+## Advanced Topics
+
+- [Code Splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- [Analyzing the Bundle Size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- [Making a Progressive Web App](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- [Deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- [Troubleshooting: build fails to minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+---
 
 ## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [Petri Net Introduction (Wikipedia)](https://en.wikipedia.org/wiki/Petri_net)
+- [Petri Net Tutorials](https://www.petrinets.info/tutorials/)
+- [React Documentation](https://reactjs.org/)
+- See our user guide: [`docs/guide.md`](docs/guide.md) for detailed explanations of all features.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project is licensed under the [MIT License](LICENSE).
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Contact
 
-### Making a Progressive Web App
+Questions, feedback, or contributions?  
+Open an issue or reach out to [MarwaOB](https://github.com/MarwaOB).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
