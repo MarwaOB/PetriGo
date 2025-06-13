@@ -4,6 +4,8 @@ import im1 from '../logo/beauty.jpg';
 import iman  from '../TeamPictures/Iman.jpg';
 import lyna from '../TeamPictures/lyna.jpg';
 import Rayan from '../TeamPictures/Rayan.jpg';
+import maroua from '../TeamPictures/maroua.jpg';
+
 
 
 const Body = () => {
@@ -14,7 +16,7 @@ const Body = () => {
 
 
 <div className="profil">
-<img src={im1} />
+<img src={maroua} />
 <h3>OGAB MAROUA </h3>
 <p>2CP-ESI </p>
 <p>mm_ogab@esi.dz</p>
