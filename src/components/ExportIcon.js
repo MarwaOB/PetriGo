@@ -5,9 +5,9 @@ import PNGExport from "../Functions/PNGExport";
 import JPGExport from "../Functions/JPGExport";
 import PDFExport from "../Functions/PDFExport";
 import { JSONExport } from "../Functions/JSONExport"; 
-import Dialog from '@material-ui/core/Dialog';
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
+import Dialog from '@mui/material/Dialog';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
 import './style.css'
 
 const ExportIcon = () => {

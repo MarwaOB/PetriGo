@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { RiGridFill } from "react-icons/ri";
-import Dialog from '@material-ui/core/Dialog';
-import Button from '@material-ui/core/Button';
+import Dialog from '@mui/material/Dialog';
+import Button from '@mui/material/Button';
 import './style.css';
 
 const GridSelector = ({ onChange }) => {
