@@ -1,10 +1,10 @@
 import React from 'react';
 import './AboutUs.css';
 import im1 from '../logo/beauty.jpg';
-import iman  from '../TeamPictures/Iman.jpg';
-import lyna from '../TeamPictures/lyna.jpg';
-import Rayan from '../TeamPictures/Rayan.jpg';
-import maroua from '../TeamPictures/maroua.jpg';
+import iman  from '../assets/TeamPictures/Iman.jpg';
+import lyna from '../assets/TeamPictures/lyna.jpg';
+import Rayan from '../assets/TeamPictures/Rayan.jpg';
+import maroua from '../assets/TeamPictures/maroua.jpg';
 
 
 

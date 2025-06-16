@@ -1,68 +1,25 @@
 import { PetriNet } from '../modules/Petri_Net.js';
 import { MarkingGraph } from '../modules/MarkingGraph.js';
 import '../pages/Navbar.css';
+import { showPromptDialog } from './handleForms';
 
-
-export const startSimulation = async (setCounter, setRunning, setIntervalId, setFormOpen, formOpen, flowElements, setFlowElements, setPausing, pausing, stimulationSpeed, stopping, setStopping, running) => {
+export const startSimulation = async (  setIntervalId,  flowElements, setFlowElements, setPausing, stimulationSpeed, stopping, setStopping) => {
     let i = 0;
-
       setPausing(0); // Incrementing pausing state
     if(stopping !== 0)   { 
       setStopping(0);      }
-
-
     PetriNet.getMarquageInitial();
     PetriNet.create_pre_post();
     const e = new MarkingGraph();
     e.markingGraph();
   
-    
  const id = setInterval(() => {
-        setCounter(prevCounter => prevCounter + 1);
         PetriNet.Enabling();
 
         if (PetriNet.blocked === true || i >= PetriNet.nb_simulation) {
           setStopping(1);
-            stopSimulation(setCounter, clearInterval, id,stopping,setStopping,setRunning,running);
-            // Create the prompt dialog container
-            const promptContainer = document.createElement('div');
-            promptContainer.classList.add('prompt-overlay');
-
-            // Create the prompt dialog
-            const promptDialog = document.createElement('div');
-            promptDialog.classList.add('prompt-dialog');
-
-            // Create the cadre for the message
-            const cadre = document.createElement('div');
-            cadre.classList.add('cadre');
-
-            // Create the message element
-            const message = document.createElement('div');
-            message.classList.add('prompt-message');
-            message.textContent = 'La simulation est terminée !';
-
-            // Append message to cadre
-            cadre.appendChild(message);
-
-            // Create the close button
-            const closeButton = document.createElement('button');
-            closeButton.classList.add('prompt-close');
-            closeButton.textContent = 'Fermer';
-
-            // Event listener for close button
-            closeButton.addEventListener('click', () => {
-                promptContainer.remove(); // Remove the prompt dialog
-            });
-
-            // Append cadre and close button to prompt dialog
-            promptDialog.appendChild(cadre);
-            promptDialog.appendChild(closeButton);
-
-            // Append the prompt dialog to the container
-            promptContainer.appendChild(promptDialog);
-
-            // Append the container to the document body
-            document.body.appendChild(promptContainer);
+            stopSimulation( clearInterval, id,setStopping);
+            showPromptDialog('La simulation est terminée !');    
         } else {
             PetriNet.establish_probability();
             PetriNet.firing(setFlowElements,flowElements,stimulationSpeed);
@@ -74,29 +31,23 @@ export const startSimulation = async (setCounter, setRunning, setIntervalId, set
     setIntervalId(id);
 };
 
-export const pauseSimulation = (setRunning, clearInterval, intervalId, setPausing, pausing, running) => {
+export const pauseSimulation = ( clearInterval, intervalId, setPausing) => {
   clearInterval(intervalId);
    setPausing(1);
 };
 
-export const stopSimulation = (setCounter, clearInterval, intervalId,stopping,setStopping,setRunning,running) => {
-  setCounter(0);
+export const stopSimulation = (clearInterval, intervalId,setStopping) => {
   setStopping(1); 
-
   clearInterval(intervalId);
 };
 
-export const stepSimulation = (setCounter, flowElements, setFlowElements, counter) => {
-  setCounter(prevCounter => prevCounter + 1);
-
+export const stepSimulation = ( flowElements, setFlowElements) => {
   PetriNet.create_pre_post();
   PetriNet.Enabling();
-
   if (PetriNet.blocked === true) {
       alert("Simulation stopped");
       return; // Stop simulation
   }
-
   PetriNet.establish_probability();
   PetriNet.firing(setFlowElements, flowElements);
   PetriNet.getCurrantMarking();
@@ -123,3 +74,61 @@ function showNbSim(nbSim, callback) {
       callback(nbSim);
   });
 }
+
+export  const handleSpeedAdjustment = (setTempTable, pausing, stopping,setStimulationSpeed ) => {
+    setTempTable([]); // Reset tempTable after creating edge
+    const speeds = [0.25, 0.5, 1, 1.5, 2, 3]; // Define available speed options
+    const currentSpeed = PetriNet.simulationSpeedCoefficient; // Get the current speed coefficient
+    if ( pausing === 0 && stopping === 0   ) {
+      showPromptDialog('On ne peut pas changer la vitesse durant la simulation.');    
+      return;
+    }
+    // Create the prompt dialog container
+    const promptContainer = document.createElement('div');
+    promptContainer.classList.add('prompt-overlay'); // Add overlay class
+  
+    // Create the prompt dialog
+    const promptDialog = document.createElement('div');
+    promptDialog.classList.add('prompt-dialog-speed'); // Add dialog class
+  
+  
+    // Create buttons for each speed option
+    speeds.forEach(speed => {
+        const button = document.createElement('button');
+        button.textContent = `x${speed}`;
+        button.classList.add('speed-button');
+        if (speed === currentSpeed) {
+            button.classList.add('selected-speed'); // Add selected-speed class if the speed matches the current speed coefficient
+        }
+        button.addEventListener('click', () => {
+            setStimulationSpeed(speed);
+            PetriNet.simulationSpeedCoefficient = speed;
+
+            // Remove the selected-speed class from all speed buttons
+            document.querySelectorAll('.speed-button').forEach(btn => {
+                btn.classList.remove('selected-speed');
+            });
+
+            // Add the selected-speed class to the clicked button
+            button.classList.add('selected-speed');
+
+            document.body.removeChild(promptContainer); // Remove the prompt container from the DOM
+        });
+        promptDialog.appendChild(button);
+    });
+  
+    // Create the close button
+    const closeButton = document.createElement('button');
+    closeButton.textContent = "Fermer";
+    closeButton.classList.add('closee-button');
+    closeButton.addEventListener('click', () => {
+        document.body.removeChild(promptContainer); // Remove the prompt container from the DOM
+    });
+    promptDialog.appendChild(closeButton);
+  
+    // Append elements to the dialog
+    promptContainer.appendChild(promptDialog);
+  
+    // Append the prompt container to the body
+    document.body.appendChild(promptContainer);
+};

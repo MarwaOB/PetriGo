@@ -1,6 +1,3 @@
-import {PetriNet} from "./Petri_Net.js";
-
-
 import vis from 'vis';
 
 export class Marking_graphe {
