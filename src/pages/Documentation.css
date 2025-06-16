@@ -1,26 +1,12 @@
 @charset "UTF-8";
 @font-face {
-  font-family: 'Neufile-Grotesk-Medium';
-  src: url(".././fonts/Neufile-Grotesk-Medium.woff") format("truetype");
-  font-weight: normal;
-  font-style: normal; 
-}
-@font-face {
-  font-family: 'Proxima-Sans-Regular';
-  src: url(".././fonts/Proxima-Sans-Regular.woff") format("truetype");
-  font-weight: normal;
-  font-style: normal; 
-}
-@font-face {
-  font-family: 'Roboto-Mono-Medium';
-  src: url(".././fonts/Roboto-Mono-Medium.woff") format("truetype");
-  font-weight: normal;
-  font-style: normal; 
+  font-family: 'MyFont';
+  src: url('../fonts/Neufile-Grotesk-Medium.woff') format('woff2'), 
 }
 
 body {
-  font-family: "Proxima-Sans-Regular", "Calibri", Trebuchet, sans-serif;
-  line-height: 27px;
+  font-family: "MyFont" !important;
+    line-height: 27px;
   background-color: #F5F5F5;
   color: #101C28;
   -webkit-font-smoothing: antialiased;
@@ -205,7 +191,7 @@ h3 {
 }
 
 .nav-link:active {
-    color: #5b458f; 
+    color: #101C28; 
 }
 
 .section-container {
@@ -224,6 +210,7 @@ h3 {
 .main-section h2 {
   margin-top: 3.389rem;
   color: #008080; 
+  font-size: 40px;
 }
 
 .main-section p:first-of-type, .main-section ul {
@@ -277,9 +264,10 @@ h3 {
   padding: 5px 10px;
   display: flex;
   align-items: center;
+  
   height:30px;
   width:  50%;
-  margin-left: 20%;
+  margin-right: 22%;
 }
 
 .search-container input[type="text"] {

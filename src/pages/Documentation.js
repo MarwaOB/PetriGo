@@ -23,58 +23,26 @@ const Documentation = () => {
         document.body.removeChild(link);
     };
 
-    const navigationLinks = [
-        { id: 1, to: '/link1', label: 'Link 1' },
-        { id: 2, to: '/link2', label: 'Link 2' },
-        // Add more links as needed
-    ];
+   
 
-    const [searchTerm, setSearchTerm] = useState('');
-    const [filteredLinks, setFilteredLinks] = useState([]);
-    
-    const handleSearch = (event) => {
-        const term = event.target.value;
-        setSearchTerm(term);
-        const filtered = navigationLinks.filter(link =>
-            link.label.toLowerCase().includes(term.toLowerCase())
-        );
-        setFilteredLinks(filtered);
-    };
-    
-    const highlightText = (text, highlight) => {
-        const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
-        return parts.map((part, index) =>
-            part.toLowerCase() === highlight.toLowerCase() ? <mark key={index}>{part}</mark> : part
-        );
-    };
-    
 
     return (
        
         <body className="body-container">
 
-          { /* <header className="header flex justify-between items-center h-12 mx-auto px-4 bg-[#20B2AA]">
-                <Link to="/" className="logo">
-                    <img src={LogoPng} alt="Logo" className="w-16 h-10 mr-2 mb-4" />  
-                </Link>
-                <div className="search-container">
-                    <input type="text" placeholder="Rechercher..." />
-                </div>
-    </header>*/}
    <header className="header flex justify-between items-center h-12 mx-auto px-4 bg-[#20B2AA]">
-<Link to="/" className="logo">
-    <img src={LogoPng} alt="Logo" className="w-16 h-10 mr-2 mb-4" />  
-</Link>
-<div className="search-container">
-    <input 
-        type="text" 
-        placeholder="Rechercher..." 
-        value={searchTerm} 
-        onChange={handleSearch} 
-    />
-</div>
+        <Link to="/" className="logo">
+            <img src={LogoPng} alt="Logo" className="w-16 h-10 mr-2 mb-4" />  
+        </Link>
+        {/*<div className="search-container">
+            <input 
+                type="text" 
+                placeholder="Rechercher..." 
 
-        </header>
+            />
+    </div>*/}
+
+    </header>
 
             <nav className="nav-container" id="navbar">
                 <div className="nav-inner-container">
@@ -361,19 +329,26 @@ const Documentation = () => {
                         <p>λ<sub>m</sub> = ∑ <sub><sub> <sub><sub>t ∈ S(M)</sub></sub></sub></sub>w(t<sub>K</sub> ) </p>
                         <p>où S(M) est l'ensemble des transitions franchissables à partir de M.</p>
                         <p>Par conséquent, le temps moyen de séjour dans ce marquage est donné par :</p>
-                        <div class="fraction-container">
-                            <div class="fraction">
-                                <sup>1</sup>
-                                <hr/>
-                                <sub>λm</sub>
-                            </div>
-                        </div>
-                        <div class="fraction-container">
-                            <div class="fraction">
-                                <sup>1</sup>
-                                <hr/>
-                                <sub>2</sub>
-                                </div>
+                        <br/>
+                        <div style={{ textAlign: 'center' }}>
+                            <span style={{ fontFamily: 'Cambria Math, sans-serif', fontSize: '24px' }}>
+                                T<sub>M</sub> = 
+                                <span style={{ verticalAlign: 'middle' }}>
+                                    <sup>1</sup>
+                                    <span >/</span>
+                                </span>
+                                <span style={{ fontSize: 'smaller' }}>
+                                    λ<sub>M</sub>
+                                </span> = 
+                                <span style={{ verticalAlign: 'middle' }}>
+                                    <sup>1</sup>
+                                    <span >/</span>
+                                </span>
+                                <span style={{ fontSize: 'smaller' }}>
+                                    ∑<sub style={{ fontSize: 'smaller' }}>t<sub>k</sub>∈S<sub>M</sub></sub>
+                                </span>
+                                w(t<sub>k</sub>)
+                            </span>
                         </div>
                     </div>
                     <div class="subsection" id="sixth-3">
@@ -383,9 +358,37 @@ const Documentation = () => {
                         <p>Tout comme les RdP ordinaires, l'évolution d'un RdPSG se fait par une suite successive de marquages. Lorsqu'un marquage M est atteint, on distingue deux scénarios pour passer à un autre marquage selon que ce M soit tangible ou évanescent. Soit S(M) l'ensemble de transitions sensibilisées de ce marquage ;</p>
                         <ul>
                         <li>Si S(M) ne contient que des transitions temporisées (marquage tangible), tous les évènements associés aux transitions sensibilisées commencent à s'exécuter en parallèle, cependant, le changement de l'état du réseau est provoqué par le déclenchement de la transition ayant le plus petit délai de franchissement. Cette politique modélise ce que l'on appelle modèle concurrentiel, et c'est la plus utilisée en pratique. La probabilité qu'une transition t<sub>j</sub> &#8712; S(M) ait le plus petit délai de franchissement est donnée par la formule suivante :</li>
-                        <p>hggh</p>
+                        <p>
+                        <div style={{ textAlign: 'center' }}>
+                            <span style={{ fontFamily: 'Cambria Math, sans-serif', fontSize: '24px' }}>
+                                P[t<sub>j</sub> | M] = 
+                                <span>          </span>
+                                <span style={{ verticalAlign: 'middle' }}>
+                                <sup style ={{fontSize: '22px'}} ><span>w(t<sub>j</sub>)</span> </sup> 
+                                    <span >/</span>
+                                    <span style={{ fontSize: 'smaller' }}>
+                                        ∑<sub style={{ fontSize: 'smaller' }}>t<sub>k</sub>∈S<sub>M</sub></sub>
+                                    </span>
+                                    w(t<sub>k</sub>)
+                                </span>
+                            </span>
+                        </div>
+                        </p>
                         <li>Si M est un marquage évanescent, i.e. S(M) comprend au moins une transition immédiate, seulement les transitions immédiates ont la possibilité d'être tirées car elles sont plus propriétaires que les transitions temporisées, vu leur temps de franchissement nul. Laquelle des transitions immédiates sera tirée si on en a plusieurs, ce problème ne peut se poser qu'en cas de transitions en conflit effectif, les transitions concurrentes pouvant être simultanément tirées. Si S(M) contient plusieurs transitions en conflit, une seule transition pourra être tirée avec une certaine probabilité qui dépend du poids de chaque transition en conflit, soit C(M) &sub; S(M) l'ensemble des transitions immédiates en conflit entre elles, la probabilité qu'une transition t<sub>j</sub> &#8712; C(M) soit tirée est donnée par :</li>
-                        <p>njgg</p>
+                        <div style={{ textAlign: 'center' }}>
+                            <span style={{ fontFamily: 'Cambria Math, sans-serif', fontSize: '24px' }}>
+                                P[t<sub>j</sub> | M] = 
+                                <span>          </span>
+                                <span style={{ verticalAlign: 'middle' }}>
+                                <sup style ={{fontSize: '22px'}} ><span>w(t<sub>j</sub>)</span> </sup> 
+                                    <span >/</span>
+                                    <span style={{ fontSize: 'smaller' }}>
+                                        ∑<sub style={{ fontSize: 'smaller' }}>t<sub>k</sub>∈C(M)</sub>
+                                    </span>
+                                    w(t<sub>k</sub>)
+                                </span>
+                            </span>
+                        </div>
                         <p>Le nouveau marquage M0 résultant après le franchissement d'une transition tj (temporisée ou immédiate) à partir d'un marquage M est toujours défini comme suit : M0 = M - Pré(., tj) + Post(., tj)</p>
                         </ul>
                     </div>
